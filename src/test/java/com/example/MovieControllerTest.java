@@ -37,6 +37,5 @@ public class MovieControllerTest {
     assertThat(movie.getId()).isEqualTo(361743);
 
 
-
   }
 }
