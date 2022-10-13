@@ -34,6 +34,7 @@ public class MovieControllerTest {
     assertThat(movie.getVoteAverage()).isGreaterThan(0f);
     assertThat(movie.getVoteCount()).isGreaterThan(0);
     assertThat(movie.getReleaseDate()).isEqualTo("2022-05-24");
+    assertThat(movie.getId()).isEqualTo(361743);
 
 
 
