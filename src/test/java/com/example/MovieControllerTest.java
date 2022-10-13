@@ -38,8 +38,8 @@ public class MovieControllerTest {
   }
 
   @Test
-  @DisplayName("get by id works")
-  public void get_by_id_works() {
+  @DisplayName("should get movie information by id")
+  public void should_get_movie_information_by_id() {
     MovieDetail movieDetail = client.toBlocking()
         .retrieve(HttpRequest.GET("361743"), MovieDetail.class);
     assertThat(movieDetail).isNotNull();

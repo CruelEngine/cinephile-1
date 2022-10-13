@@ -30,7 +30,7 @@ class MovieServiceShould {
   public void get_by_id_calls_gateway() {
     MovieGateway movieGateway = mock(MovieGateway.class);
     MovieService  movieService = new MovieService(movieGateway);
-    MovieDetail movieDetail = new MovieDetail("","",0,"");
-    given(movieGateway.getById(1)).willReturn(movieDetail);
+    movieService.get(1);
+    verify(movieGateway).getById(1);
   }
 }
