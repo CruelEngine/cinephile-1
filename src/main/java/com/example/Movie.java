@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Movie {
 
-  private String names;
+  private String name;
   private String image;
   private float voteAverage;
   private int voteCount;
@@ -15,7 +15,7 @@ public class Movie {
       @JsonProperty("poster_path") String image, @JsonProperty("vote_average") float voteAverage,
       @JsonProperty("vote_count") int voteCount, @JsonProperty("release_date") String releaseDate
   ) {
-    this.names = name;
+    this.name = name;
     this.image = image;
     this.voteAverage = voteAverage;
     this.voteCount = voteCount;
@@ -24,7 +24,7 @@ public class Movie {
   }
 
   public String getName() {
-    return this.names;
+    return this.name;
   }
 
   public String getImage() {
