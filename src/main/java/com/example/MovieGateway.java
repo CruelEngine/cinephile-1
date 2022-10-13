@@ -12,13 +12,13 @@ import java.nio.charset.StandardCharsets;
 public class MovieGateway {
 
   @Inject
-  @Client("https://api.themoviedb.org/3/search/")
+  @Client("https://api.themoviedb.org/3/")
   HttpClient client;
 
   public TmdbResponse search(String name) {
     return client.toBlocking()
         .retrieve(HttpRequest.GET(
-                "movie?api_key=e470560acfb347655d8af373c29aba11&query=" + URLEncoder.encode(name,
+                "search/movie?api_key=e470560acfb347655d8af373c29aba11&query=" + URLEncoder.encode(name,
                     StandardCharsets.UTF_8)
             ),
             TmdbResponse.class);
