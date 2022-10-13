@@ -21,8 +21,6 @@ class MovieServiceShould {
      List<Movie> movies = List.of(movie);
     TmdbResponse tmdbResponse =   new TmdbResponse(1,movies  );
     given(movieGateway.search("name")).willReturn(tmdbResponse);
-
-
     movieService.search("name");
     verify(movieGateway).search("name");
   }
