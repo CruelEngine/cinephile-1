@@ -24,4 +24,13 @@ class MovieServiceShould {
     movieService.search("name");
     verify(movieGateway).search("name");
   }
+
+  @Test
+  @DisplayName("get by id calls gateway")
+  public void get_by_id_calls_gateway() {
+    MovieGateway movieGateway = mock(MovieGateway.class);
+    MovieService  movieService = new MovieService(movieGateway);
+    MovieDetail movieDetail = new MovieDetail("","",0,"");
+    given(movieGateway.getById(1)).willReturn(movieDetail);
+  }
 }

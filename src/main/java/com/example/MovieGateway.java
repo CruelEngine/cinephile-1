@@ -23,4 +23,12 @@ public class MovieGateway {
             ),
             TmdbResponse.class);
   }
+
+  public MovieDetail getById(int id) {
+    var uri = "movie/" + id + "?api_key=e470560acfb347655d8af373c29aba11";
+    System.out.println(uri);
+    return client.toBlocking()
+        .retrieve(HttpRequest.GET(uri),
+            MovieDetail.class);
+  }
 }
