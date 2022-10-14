@@ -18,4 +18,9 @@ public class MovieController {
   public List<Movie> search( @QueryValue String query) {
     return movieService.search(query);
   }
+
+  @Get("/{id}")
+  public MovieDetail get(int id) {
+    return movieService.get(id);
+  }
 }

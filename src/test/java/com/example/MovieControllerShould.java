@@ -19,10 +19,23 @@ public class MovieControllerShould {
     // act
     movieController.search("name");
 
-
     // assert
     verify(movieService).search("name");
 
+  }
+
+  @Test
+  @DisplayName("get by id should call service")
+  public void get_by_id_should_call_service() {
+    // arrange
+    MovieService movieService = mock(MovieService.class);
+    MovieController movieController = new MovieController(movieService);
+
+    // act
+    movieController.get(1);
+
+    // assert
+    verify(movieService).get(1);
   }
 
 }

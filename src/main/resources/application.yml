@@ -14,6 +14,13 @@ netty:
 jpa.default.properties.hibernate.hbm2ddl.auto: none
 jpa:
   default:
+    properties:
+      hibernate:
+        hbm2ddl:
     entity-scan:
-      packages: 'com.examlpe'
+      packages: 'com.example'
 
+liquibase:
+  datasources:
+    default:
+      change-log: 'classpath:db/liquibase-changelog.sql'
