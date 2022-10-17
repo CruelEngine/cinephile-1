@@ -7,6 +7,7 @@ import static org.mockito.Mockito.verify;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import reactor.core.publisher.Mono;
 
 class MovieServiceShould {
 
@@ -18,8 +19,8 @@ class MovieServiceShould {
     Movie movie = new Movie(1, "name", "image", 9.3f, 234, "2019-1-1");
     List<Movie> movies = List.of(movie);
     TmdbResponse tmdbResponse = new TmdbResponse(1, movies);
-    given(movieGateway.search("name")).willReturn(tmdbResponse);
-    movieService.search("name");
+    given(movieGateway.search("name")).willReturn(Mono.just(tmdbResponse));
+    movieService.search("name").blockFirst();
     verify(movieGateway).search("name");
   }
 
