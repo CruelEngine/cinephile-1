@@ -2,6 +2,7 @@ package com.example;
 
 import io.micronaut.context.annotation.Bean;
 import java.util.List;
+import reactor.core.publisher.Flux;
 
 @Bean
 public class MovieService {
@@ -13,8 +14,11 @@ public class MovieService {
     this.movieGateway = movieGateway;
   }
 
-  List<Movie> search(String name) {
-    return movieGateway.search(name).getMovies();
+  Flux<Movie> search(String name) {
+    return movieGateway
+        .search(name)
+        .map(TmdbResponse::getMovies)
+        .flatMapMany(Flux::fromIterable);
   }
 
   public MovieDetail get(int id) {

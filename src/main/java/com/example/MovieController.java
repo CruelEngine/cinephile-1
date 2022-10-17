@@ -4,6 +4,7 @@ import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.QueryValue;
 import java.util.List;
+import reactor.core.publisher.Flux;
 
 @Controller("movies")
 public class MovieController {
@@ -15,7 +16,7 @@ public class MovieController {
   }
 
   @Get(uri = "search")
-  public List<Movie> search( @QueryValue String query) {
+  public Flux<Movie> search( @QueryValue String query) {
     return movieService.search(query);
   }
 

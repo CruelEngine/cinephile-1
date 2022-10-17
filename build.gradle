@@ -26,6 +26,10 @@ dependencies {
     testImplementation 'org.mockito:mockito-junit-jupiter:2.23.0'
     implementation group: 'io.micronaut.data', name: 'micronaut-data-hibernate-jpa', version: '3.8.1'
     implementation("io.micronaut.liquibase:micronaut-liquibase")
+    implementation("io.micronaut.reactor:micronaut-reactor")
+    implementation("io.micronaut.reactor:micronaut-reactor-http-client")
+    implementation("io.micronaut.data:micronaut-data-hibernate-reactive")
+    implementation("io.projectreactor.tools:blockhound:1.0.6.RELEASE")
 }
 
 

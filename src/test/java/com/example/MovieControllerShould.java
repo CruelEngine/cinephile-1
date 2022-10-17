@@ -1,11 +1,15 @@
 package com.example;
 
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
+import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import reactor.core.publisher.Flux;
 
 public class MovieControllerShould {
 
@@ -15,7 +19,8 @@ public class MovieControllerShould {
     // arrange
     MovieService movieService = mock(MovieService.class);
     MovieController movieController = new MovieController(movieService);
-
+    Movie movie = new Movie(1,",","",2.4f,2,"");
+    given(movieService.search("name")).willReturn(Flux.fromIterable( List.of( movie)));
     // act
     movieController.search("name");
 
