@@ -16,8 +16,8 @@ public class MovieController {
   }
 
   @Get(uri = "search")
-  public Movie search( @QueryValue String query) {
-    return movieService.search(query).blockFirst();
+  public Flux<Movie> search( @QueryValue String query) {
+    return movieService.search(query);
   }
 
   @Get("/{id}")
